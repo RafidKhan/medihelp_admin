@@ -1,7 +1,7 @@
-// class TableUsers {
-//   static String collectionName = 'users';
-//   static String TABLE_USERS_ID = 'userId';
-// }
+class TableUsers {
+  static String collectionName = 'users';
+  static String TABLE_USERS_ID = 'userId';
+}
 
 class TableAdmins {
   static String collectionName = 'admins';
@@ -23,7 +23,7 @@ class TableOrders {
 }
 
 class StoragePath {
-  //static String USER_PROFILE_IMAGE_PATH = 'profile_image/';
+  static String USER_PROFILE_IMAGE_PATH = 'profile_image/';
 
   static String USER_PROFILE_ADMIN = 'admin/';
 
@@ -35,4 +35,14 @@ class OrderStatus {
   static String status_in_progress = "in progress";
   static String status_out_for_delivery = "out for delivery";
   static String status_delivered = "delivered";
+  static String status_canceled = "canceled";
 }
+
+
+final List<String> orderStatusList = <String>[
+  OrderStatus.status_pending,
+  OrderStatus.status_in_progress,
+  OrderStatus.status_out_for_delivery,
+  OrderStatus.status_delivered,
+  OrderStatus.status_canceled,
+];

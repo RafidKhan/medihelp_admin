@@ -10,6 +10,12 @@ class CartModel {
       required this.price,
       required this.quantity});
 
+  CartModel.fromJson(Map<String, dynamic> json)
+      : name = json['name'] ?? "",
+        id = json['id'] ?? "",
+        price = json['price'] ?? 0,
+        quantity = json['quantity'] ?? "";
+
   Map<String, dynamic> toJson() => {
         'name': name,
         'id': id,

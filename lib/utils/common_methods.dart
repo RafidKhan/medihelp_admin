@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:medihelp_admin/components/loader_widget.dart';
 import 'package:medihelp_admin/models/admin_model.dart';
+import 'package:medihelp_admin/models/user_model.dart';
 import 'package:medihelp_admin/modules/authentication/login/view/login_view.dart';
 import 'package:medihelp_admin/utils/firebase_constants.dart';
 import 'package:medihelp_admin/utils/shared_preference.dart';
@@ -50,20 +51,20 @@ Future<String> cameraOrGalleryImage(bool isGallery) async {
   return path;
 }
 
-// Future<String> getUserProfileImageUrl({required userId}) async {
-//   var url = "";
-//
-//   try {
-//     var ref = FirebaseStorage.instance
-//         .ref()
-//         .child("${StoragePath.USER_PROFILE_IMAGE_PATH}${userId}.jpg");
-//
-//     url = (await ref.getDownloadURL()).toString();
-//   } catch (e) {
-//     url = "";
-//   }
-//   return url;
-// }
+Future<String> getUserProfileImageUrl({required userId}) async {
+  var url = "";
+
+  try {
+    var ref = FirebaseStorage.instance
+        .ref()
+        .child("${StoragePath.USER_PROFILE_IMAGE_PATH}${userId}.jpg");
+
+    url = (await ref.getDownloadURL()).toString();
+  } catch (e) {
+    url = "";
+  }
+  return url;
+}
 
 Future<String> getMedicineImageUrl({required medicineId}) async {
   var url = "";
@@ -122,21 +123,21 @@ logoutUser() async {
   );
 }
 
-// Future<UserModel?> getUserData(String userId) async {
-//   UserModel? userModel;
-//
-//   await FirebaseFirestore.instance
-//       .collection(TableUsers.collectionName)
-//       .doc(userId)
-//       .get()
-//       .then((value) {
-//     if (value.data() != null) {
-//       userModel = UserModel.fromJson(value.data()!);
-//     }
-//   });
-//
-//   return userModel;
-// }
+Future<UserModel?> getUserData(String userId) async {
+  UserModel? userModel;
+
+  await FirebaseFirestore.instance
+      .collection(TableUsers.collectionName)
+      .doc(userId)
+      .get()
+      .then((value) {
+    if (value.data() != null) {
+      userModel = UserModel.fromJson(value.data()!);
+    }
+  });
+
+  return userModel;
+}
 
 Future<AdminModel?> getAdminData(String adminId) async {
   AdminModel? userModel;

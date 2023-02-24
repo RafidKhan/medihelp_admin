@@ -18,6 +18,7 @@ const double float5 = 5.0;
 const double float8 = 8.0;
 const double float10 = 10.0;
 const double float12 = 12.0;
+const double float14 = 14.0;
 const double float16 = 16.0;
 const double float20 = 20.0;
 const double float24 = 24.0;
@@ -30,6 +31,7 @@ const double horizontalMargin = float24;
 const double containerPadding = float16;
 const double generalPadding = 10.0;
 
+const double fontSize10 = 10.0;
 const double fontSize12 = 12.0;
 const double fontSize14 = 14.0;
 const double fontSize16 = 16.0;
