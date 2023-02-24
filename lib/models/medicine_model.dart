@@ -1,11 +1,11 @@
 class MedicineModel {
-  final String? image;
-  final String? categoryId;
-  final String? name;
-  final String? id;
-  final String? category;
-  final String? price;
-  final String? description;
+  String? image;
+  String? categoryId;
+  String? name;
+  String? id;
+  String? category;
+  String? price;
+  String? description;
 
   MedicineModel({
     this.image,

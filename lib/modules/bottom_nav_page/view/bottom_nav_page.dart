@@ -26,6 +26,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
             type: BottomNavigationBarType.fixed,
             items: [
               bottomNavItem(asset: Assets.icons.iconHome.path),
+              bottomNavItem(asset: Assets.icons.iconAdd.path),
               bottomNavItem(asset: Assets.icons.user.path),
             ],
             backgroundColor: kPrimaryColor,

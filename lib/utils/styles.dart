@@ -15,6 +15,7 @@ const kTextFieldBorder = Color(0xffDADADA);
 const defaultPageTransition = Transition.fadeIn;
 
 const double float5 = 5.0;
+const double float8 = 8.0;
 const double float10 = 10.0;
 const double float12 = 12.0;
 const double float16 = 16.0;

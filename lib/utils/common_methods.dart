@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
@@ -63,6 +64,22 @@ Future<String> cameraOrGalleryImage(bool isGallery) async {
 //   }
 //   return url;
 // }
+
+Future<String> getMedicineImageUrl({required medicineId}) async {
+  var url = "";
+
+  try {
+    var ref = FirebaseStorage.instance
+        .ref()
+        .child("${StoragePath.MEDICINE_IMAGE}${medicineId}.jpg");
+
+    url = (await ref.getDownloadURL()).toString();
+  } catch (e) {
+    url = "";
+    print("HERE IS CATCH: $e");
+  }
+  return url;
+}
 
 snackBarWidget(
     {required String title, required String subTitle, Color? color}) {

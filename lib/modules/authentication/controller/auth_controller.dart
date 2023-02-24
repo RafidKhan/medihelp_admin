@@ -54,24 +54,18 @@ class AuthController extends GetxController {
               .doc(userId)
               .get()
               .then((value) async {
-            await SharedPref.write(prefKeyLoginStatus, "true");
-            await SharedPref.write(prefKeyUserId, userId);
-            verifyButtonLoading.value = false;
-            Get.off(() => const BottomNavScreen(),
-                transition: defaultPageTransition);
-            // if (value.data() == null) {
-            //   verifyButtonLoading.value = false;
-            //   snackBarWidget(
-            //       title: "Registration Required",
-            //       subTitle:
-            //           "You must register first, before you could use your phone number for sign in");
-            // } else {
-            //   await SharedPref.write(prefKeyLoginStatus, "true");
-            //   await SharedPref.write(prefKeyUserId, userId);
-            //   verifyButtonLoading.value = false;
-            //   Get.off(() => const BottomNavScreen(),
-            //       transition: defaultPageTransition);
-            // }
+            if (value.data() == null) {
+              verifyButtonLoading.value = false;
+              snackBarWidget(
+                  title: "This number is not registered to any admin",
+                  subTitle: "");
+            } else {
+              await SharedPref.write(prefKeyLoginStatus, "true");
+              await SharedPref.write(prefKeyUserId, userId);
+              verifyButtonLoading.value = false;
+              Get.off(() => const BottomNavScreen(),
+                  transition: defaultPageTransition);
+            }
           });
         }
       });
