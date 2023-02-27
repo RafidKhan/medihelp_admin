@@ -20,7 +20,7 @@ class MediHelpAdmin extends StatelessWidget {
       theme: ThemeData(
         primaryColor: kPrimaryColor,
       ),
-      title: 'MediHelp',
+      title: 'MediHelp Admin',
       home: const SplashScreen(),
     );
   }
